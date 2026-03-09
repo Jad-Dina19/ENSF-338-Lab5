@@ -65,32 +65,33 @@ class PriorityQueue2:
 
 
 def random_task(n):
-    choice = ["enqueue","dequeue"]              # 0 = enqueue and 1 = dequeue
+    choice = ["enqueue","dequeue"]
     probability = [0.7, 0.3]
     task = random.choices(choice, weights=probability, k=n)
     return task
 
-def measure(task, queue):
-    return 1
+def measure(tasks, queue):
+    queue_time = 0
+    for task in tasks:
+        if task == "enqueue":
+            data = random.randint(0,1000)
+            queue_time += timeit(lambda: queue.enqueue(data), number=1)
+        else:
+            queue_time += timeit(lambda: queue.dequeue(), number=1)
+
+    return queue_time
 
 
 def main():
-    queue1 = PriorityQueue1()
-    queue2 = PriorityQueue2()
-
     queue1_time = []
     queue2_time = []
     for _ in range(100):
         task = random_task(1000)
-        queue1_time_temp = 0
-        queue2_time_temp = 0
-        
-        for i in task:
-            queue1_time_temp += measure(task, queue1)
-            queue2_time_temp += measure(task, queue2)
+        queue1 = PriorityQueue1()
+        queue2 = PriorityQueue2()
 
-        queue1_time.append(queue1_time_temp)
-        queue2_time.append(queue2_time_temp)
+        queue1_time.append(measure(task, queue1))
+        queue2_time.append(measure(task, queue2))
     
     print(queue1_time)
 
