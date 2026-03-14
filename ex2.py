@@ -113,11 +113,10 @@ if __name__ == "__main__":
 
 
 ''' Question 5
-The implementation with sorted inserts is much more efficient. 
-
-
-
-
-
+The implementation with sorted inserts is much more efficient. At worst case complexity, a sorted insert
+would be O(n) complexity to traverse the array and O(n) to insert and resize the array. n + n in the 
+complexity equation would just be O(n). While the insert in the other method is O(1), from previous 
+experiments, we know that merge sort has a time complexity of O(n log n) for all cases. This shows that
+the merge sort and insertion implementation is consistently slower than the sorted insert implementation.
 
 '''
