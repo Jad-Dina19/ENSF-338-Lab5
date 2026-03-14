@@ -93,18 +93,20 @@ def main():
         queue1_time.append(measure(task, queue1))
         queue2_time.append(measure(task, queue2))
     
-    # print("Queue 1 Times: ", queue1_time)
-    # print("Queue 2 Times: ", queue2_time)
+    
+    print("Queue 1 Times: ", queue1_time , "\n\n")
+    print("Queue 2 Times: ", queue2_time , "\n\n")
 
 
-    plt.figure()
-    plt.hist(queue1_time, alpha=0.5, label="Priority Queue With Merge Sort")
-    plt.hist(queue2_time, alpha=0.5, label="Priority Queue With Sorted Insert")
-    plt.title("Comparing Sorted Insert To Merge Sort")
-    plt.xlabel("Execution Time")
-    plt.ylabel("Frequency")
-    plt.legend()
-    plt.show()
+    # Turns out I did not need to do this part, I just assumed so.
+    # plt.figure()
+    # plt.hist(queue1_time, alpha=0.5, label="Priority Queue With Merge Sort")
+    # plt.hist(queue2_time, alpha=0.5, label="Priority Queue With Sorted Insert")
+    # plt.title("Comparing Sorted Insert To Merge Sort")
+    # plt.xlabel("Execution Time")
+    # plt.ylabel("Frequency")
+    # plt.legend()
+    # plt.show()
 
 
 
