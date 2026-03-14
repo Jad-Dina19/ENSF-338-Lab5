@@ -110,3 +110,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+''' Question 5
+The implementation with sorted inserts is much more efficient. 
+
+
+
+
+
+
+'''
